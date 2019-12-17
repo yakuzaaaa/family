@@ -4,12 +4,17 @@ import (
 	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/family/models"
+	"github.com/family/controller"
 )
 
 func init() {
 	// Lets generate a static family tree as
 	// provided in the problem statement
-	staticTreeGenerator()
+	// This generates the King Shan Family tree
+	// And stores it in few in-memory data structures
+	models.StaticTreeGenerator()
 }
 
 func main() {
@@ -24,12 +29,24 @@ func main() {
 	if err == nil {
 		fileContent, err := ioutil.ReadAll(file)
 		if err == nil {
+			// Converting bytes to string
+			// Spliting the string by line break and getting each query
 			lines := strings.Split(string(fileContent), "\n")
+			// Process the Array of queries
 			processInputLines(lines)
 		}
 	}
 }
 
 func processInputLines(lines []string) {
+	for _, line := range lines {
+		if len(line) > 0 {
+			// Empty line cannot be a valid query
+			words := strings.Split(line, " ")
+			query := words[0]
+			input := words[1:]
 
+			controller.Handle(query, input)
+		}
+	}
 }
