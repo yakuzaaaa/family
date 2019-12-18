@@ -20,16 +20,16 @@ const (
 func Response(reponseType _response) {
 	switch reponseType {
 	case ChildAdditionSuccessful:
-		translator.Get("child_addition_succeeded", "en")
+		fmt.Println(translator.Get("child_addition_succeeded", "en"))
 		break
 	case ChildAdditionFailed:
-		translator.Get("child_addition_failed", "en")
+		fmt.Println(translator.Get("child_addition_failed", "en"))
 		break
 	case PersonNotFound:
-		translator.Get("person_not_found", "en")
+		fmt.Println(translator.Get("person_not_found", "en"))
 		break
 	case None:
-		translator.Get("none", "en")
+		fmt.Println(translator.Get("none", "en"))
 		break
 	}
 }

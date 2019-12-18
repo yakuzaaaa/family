@@ -1,27 +1,29 @@
 package models
 
-// import "github.com/family/utils"
-
+// Represents app level constants
 const (
-	MALE           = 0
-	FEMALE         = 1
-	SON            = "Son"
-	DAUGHTER       = "Daughter"
-	SIBLINGS       = "Siblings"
-	PATERNAL_UNCLE = "Paternal-Uncle"
-	MATERNAL_UNCLE = "Maternal-Uncle"
-	PATERNAL_AUNT  = "Paternal-Aunt"
-	MATERNAL_AUNT  = "Maternal-Aunt"
-	SISTER_IN_LAW  = "Sister-In-Law"
-	BROTHER_IN_LAW = "Borther-In-Law"
+	MALE          = 0
+	FEMALE        = 1
+	SON           = "Son"
+	DAUGHTER      = "Daughter"
+	SIBLINGS      = "Siblings"
+	PATERNALUNCLE = "Paternal-Uncle"
+	MATERNALUNCLE = "Maternal-Uncle"
+	PATERNALAUNT  = "Paternal-Aunt"
+	MATERNALAUNT  = "Maternal-Aunt"
+	SISTERINLAW   = "Sister-In-Law"
+	BROTHERINLAW  = "Borther-In-Law"
 )
 
+// Couple represents married structure 
+// of husband and wife
 type Couple struct {
 	Husband  *Node
 	Wife     *Node
 	Children []*Node
 }
 
+// Node represents a person
 type Node struct {
 	Name            string
 	Gender          int
@@ -41,13 +43,17 @@ func (husband *Node) marriage(wife *Node) *Couple {
 	return &couple
 }
 
+// AddChild adds relation of child parent to a couple
 func (couple *Couple) AddChild(child *Node) {
 	couple.Children = append(couple.Children, child)
 }
 
+// Persons is an app level index of persons
 var Persons = make(map[string]*Node)
+// Couples is an app level index of couples
 var Couples = make(map[string]*Couple)
 
+// CreateNode creates a person
 func CreateNode(name string, gender int, parent *Couple) *Node {
 	node := Node{name, gender, parent, nil}
 
@@ -61,6 +67,8 @@ func indexNode(node *Node) {
 	Persons[node.Name] = node
 }
 
+// StaticTreeGenerator generates the hard-coded
+// family tree given in the problem
 func StaticTreeGenerator() *Couple {
 	// King Shan
 	KingShan := CreateNode("King Shan", MALE, nil)

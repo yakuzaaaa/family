@@ -12,7 +12,7 @@ func init() {
 	english["child_addition_succeeded"] = "CHILD_ADDITION_SUCCEEDED"
 	english["child_addition_failed"] = "CHILD_ADDITION_FAILED"
 	english["person_not_found"] = "PERSON_NOT_FOUND"
-	english["node"] = "NONE"
+	english["none"] = "NONE"
 
 	translations["en"] = english
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/family/utils"
 )
 
+//Handle handles queries
 func Handle(query string, input []string) {
 	switch query {
 	case "ADD_CHILD":
@@ -46,22 +47,22 @@ func _resolveRelation(personName string, relationName string) {
 		case models.SIBLINGS:
 			utils.GetSiblings(person)
 			break
-		case models.PATERNAL_UNCLE:
+		case models.PATERNALUNCLE:
 			utils.GetPaternalUncle(person)
 			break
-		case models.PATERNAL_AUNT:
+		case models.PATERNALAUNT:
 			utils.GetPaternalAunt(person)
 			break
-		case models.MATERNAL_UNCLE:
+		case models.MATERNALUNCLE:
 			utils.GetMaternalUncle(person)
 			break
-		case models.MATERNAL_AUNT:
+		case models.MATERNALAUNT:
 			utils.GetMaternalAunt(person)
 			break
-		case models.SISTER_IN_LAW:
-			utils.GetSiterInLaw(person)
+		case models.SISTERINLAW:
+			utils.GetSisterInLaw(person)
 			break
-		case models.BROTHER_IN_LAW:
+		case models.BROTHERINLAW:
 			utils.GetBrotherInLaw(person)
 			break
 		default:
