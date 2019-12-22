@@ -10,7 +10,11 @@ import (
 func Handle(query string, input []string) {
 	switch query {
 	case "ADD_CHILD":
-		_addChild(string(input[0]), string(input[1]), 1)
+		gender := models.FEMALE
+		if input[len(input)-1] == "Male" {
+			gender = models.MALE
+		}
+		_addChild(string(input[0]), string(input[1]), gender)
 		break
 	case "GET_RELATIONSHIP":
 		_resolveRelation(string(input[0]), string(input[1]))

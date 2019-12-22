@@ -28,7 +28,7 @@ func GetPaternalUncle(person *models.Node) {
 	if parent != nil {
 		GetSiblingsByGender(parent.Husband, models.MALE)
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
@@ -38,7 +38,7 @@ func GetPaternalAunt(person *models.Node) {
 	if parent != nil {
 		GetSiblingsByGender(parent.Husband, models.FEMALE)
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
@@ -48,7 +48,7 @@ func GetMaternalUncle(person *models.Node) {
 	if parent != nil {
 		GetSiblingsByGender(parent.Wife, models.MALE)
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
@@ -58,7 +58,7 @@ func GetMaternalAunt(person *models.Node) {
 	if parent != nil {
 		GetSiblingsByGender(parent.Wife, models.FEMALE)
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
@@ -78,7 +78,7 @@ func GetSiblingsOfInLawByGender(person *models.Node, gender int) {
 	if spouse != nil {
 		GetSiblingsByGender(spouse, gender)
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
@@ -100,7 +100,7 @@ func GetChildrenByGender(person *models.Node, gender int) {
 		}
 
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
@@ -123,7 +123,7 @@ func GetSiblingsByGender(person *models.Node, gender int) {
 		}
 
 	} else {
-		responder.Response(responder.PersonNotFound)
+		responder.Response(responder.None)
 	}
 }
 
